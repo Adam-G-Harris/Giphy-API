@@ -7,6 +7,7 @@ window.onload = () => {
         submit = document.getElementById('submit');
 
     submit.addEventListener('click', search);
+    display.addEventListener('click', runGif);
     tagsDisplay.addEventListener('click', newSearch);
 
     // Default categories
@@ -33,7 +34,8 @@ window.onload = () => {
 
                     // HTML that all gifs receive
                     return display.innerHTML += `<div class='gif-container'>
-                                            <img class='gif-output' src=${ele.images.downsized.url}>
+                                            <img class='gif-output still' src=${ele.images.downsized_still.url}>
+                                            <img class='gif-output animate hide' src=${ele.images.downsized.url}>
                                             <div class='gif-rating'>${ele.rating}</div>
                                             </div>`;
                 });
@@ -45,6 +47,20 @@ window.onload = () => {
             })
 
         return;
+    }
+
+    function runGif(e) {
+
+        if (e.target.classList.contains('still')) {
+
+            e.target.classList.toggle('hide');
+            e.target.nextElementSibling.classList.toggle('hide');
+
+        } else if (e.target.classList.contains('animate')) {
+
+            e.target.classList.toggle('hide');
+            e.target.previousElementSibling.classList.toggle('hide');
+        }
     }
 
     // All gif catagories

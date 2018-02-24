@@ -44,10 +44,18 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-around;
+}
+
+#sidebar-title {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
 }
 
 #user-search {
     outline: none;
+    font-size: .8rem;
+    padding: .5rem 1rem;
 }
 
 #submit {
@@ -125,4 +133,8 @@ body {
 
 .gif-rating {
     width: 100%;
+}
+
+.hide {
+    display: none;
 }
